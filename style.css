@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ---- Background ---- */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  filter: brightness(0.9) saturate(1.1);
+  transition: opacity 1.5s ease-in-out;
+  z-index: -1;
+}
+
+/* ---- Content Layout ---- */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  padding-top: 60px;
+  text-align: center;
+  color: #fff;
+}
+
+/* ---- Quotes ---- */
+.quote-container {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 40px;
+  min-height: 40px;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ---- To-Do App ---- */
+.todo-app {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  padding: 40px 30px 70px;
+  width: 90%;
+  max-width: 540px;
+  color: #002765;
+  animation: fadeInUp 0.8s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Slight lift on hover */
+.todo-app:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Entry animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.todo-app h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 5px;
+}
+
+.todo-app h2 img {
+  width: 45px;
+  margin-left: 10px;
+}
+
+.row {
+  display: flex;
+  background: #edeef0;
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-bottom: 25px;
+}
+
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px;
+}
+
+/* ---- Add Button ---- */
+button {
+  border: none;
+  outline: none;
+  padding: 16px 50px;
+  background: #ff5945;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 40px;
+  box-shadow: 0 4px 15px rgba(255, 89, 69, 0.3);
+  transition: all 0.25s ease;
+}
+
+/* Hover interaction */
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 89, 69, 0.5);
+}
+
+/* Pressed state */
+button:active {
+  transform: scale(0.96);
+  box-shadow: 0 3px 10px rgba(255, 89, 69, 0.4);
+}
+
+/* ---- Task List ---- */
+ul li {
+  list-style: none;
+  font-size: 17px;
+  padding: 12px 8px 12px 50px;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+}
+
+ul li::before {
+  content: '';
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background: url('images/unchecked.png') center/cover;
+  top: 12px;
+  left: 8px;
+}
+
+ul li.checked {
+  color: #555;
+  text-decoration: line-through;
+}
+
+ul li.checked::before {
+  background: url('images/checked.png') center/cover;
+}
+
+ul li span {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+ul li span:hover {
+  background: #edeef0;
+}
